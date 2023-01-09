@@ -20,11 +20,11 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('summary')->nullable();
 
-            $table->integer('category_id')->unsigned()->index();
+            $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('category');
 
-            $table->integer('brand_id')->unsigned()->index();
+            $table->integer('brand_id')->unsigned();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->string('brand');
            

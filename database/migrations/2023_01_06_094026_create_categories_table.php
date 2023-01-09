@@ -21,7 +21,7 @@ return new class extends Migration
 
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('level')->default(0);
-            $table->foreign('parent_id')->references('id')->on('contents')->onDelete('CASCADE');
+            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->integer('featured_id')->unsigned()->nullable();
 

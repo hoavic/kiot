@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {overflow: hidden;}
+.app-main {overflow: auto; height: 100vh;}
+.app-content {padding: 2em;min-height: calc(100vh - 118px)}
+.app-grid {
+    display: grid;
+    grid-template-columns: 250px auto;
+}
+.app-title {margin: 0; font-size: 1.2em; font-weight: bold; text-transform: uppercase;}
+
+.nav-group-label,
+.nav-item>a {
+    padding: 0.5em;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+}
+
+.nav-title-group {
+    text-transform: uppercase;
+    font-size: smaller;
+    padding: 0.5em 0;
+}
+
+.nav-item-badge {
+    background: gray;
+    padding: 0 0.3em;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.form-line {
+    margin: 1em 0;
+    display: flex;
+    align-items: center;
+}
+.form-line-gap {gap: 1em;}
+.form-line-mask>label{    
+    background: rgb(226 232 240);
+    padding: 0.5em 1em;
+    border: 1px solid;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+}
+.form-line-mask>input,
+.form-line-mask>select {
+    padding: 0.5em;
+    border-radius: 0 8px 8px 0;
+}
+
+@media screen and(min-width: 768px) {
+
+}
+

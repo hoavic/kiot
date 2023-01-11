@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('category');
 
-            $table->integer('brand_id')->unsigned();
+            $table->integer('brand_id')->unsigned()->nullable();
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->string('brand');
            

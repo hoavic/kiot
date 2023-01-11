@@ -15,6 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        return view('back.categories.index');
     }
 
     /**
@@ -36,6 +37,16 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
+            'description' => 'string',
+            'parent_id' => 'integer',
+        ]);
+ 
+        $request->user()->categories()->create($validated);
+ 
+        return redirect(route('categories.index'));
     }
 
     /**
@@ -47,6 +58,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        return view('back.categories.show');
     }
 
     /**

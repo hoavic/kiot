@@ -15,6 +15,7 @@ class BrandController extends Controller
     public function index()
     {
         //
+        return view('back.brands.index');
     }
 
     /**
@@ -47,6 +48,7 @@ class BrandController extends Controller
     public function show(Brand $brand)
     {
         //
+        return view('back.brands.show');
     }
 
     /**

@@ -15,6 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
+        return view('back.products.index');
     }
 
     /**
@@ -47,6 +48,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
+        return view('back.products.show')->with('product', $product);
     }
 
     /**

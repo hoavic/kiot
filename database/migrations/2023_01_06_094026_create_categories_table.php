@@ -19,9 +19,11 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
 
-            $table->integer('parent_id')->unsigned()->nullable();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+        /*     $table->integer('parent_id')->unsigned()->nullable(); */
+            $table->foreignId('parent_id')->nullable();
             $table->integer('level')->default(0);
-            $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->integer('featured_id')->unsigned()->nullable();
 

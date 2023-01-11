@@ -15,7 +15,10 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('back.categories.index');
+        $parentCategories = Category::with('user')->where('parent_id',0)->get();
+
+        return view('back.categories.index', compact('parentCategories'));
+        /* return view('back.categories.index'); */
     }
 
     /**

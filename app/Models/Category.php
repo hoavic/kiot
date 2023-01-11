@@ -18,8 +18,17 @@ class Category extends Model
         'featured_id'
     ];
 
+    public function childs() {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

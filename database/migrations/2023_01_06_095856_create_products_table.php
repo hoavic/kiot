@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('summary')->nullable();
 
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('category');

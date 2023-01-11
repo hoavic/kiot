@@ -31,7 +31,10 @@ body {overflow: hidden;}
     border-radius: 8px;
     font-size: 0.9em;
 }
-
+.form-break>label {
+    margin-bottom: 0.3em;
+    display: block;
+}
 .form-line {
     margin: 1em 0;
     display: flex;
@@ -44,12 +47,24 @@ body {overflow: hidden;}
     border: 1px solid;
     border-right: none;
     border-radius: 8px 0 0 8px;
+    white-space: nowrap;
 }
 .form-line-mask>input,
 .form-line-mask>select {
     padding: 0.5em;
     border-radius: 0 8px 8px 0;
+    width: -webkit-fill-available;
 }
+
+
+
+.popup-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 @media screen and(min-width: 768px) {
 

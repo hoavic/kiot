@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
 
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
             $table->integer('featured_id')->unsigned()->nullable();
 
             $table->timestamps();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -37,16 +38,17 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
-        $validated = $request->validate([
+/*         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255',
-            'description' => 'string',
+            'description' => 'string|nullable',
             'parent_id' => 'integer',
-        ]);
- 
+        ]); */
+        $validated = $request->validated();
+
         $request->user()->categories()->create($validated);
  
         return redirect(route('categories.index'));

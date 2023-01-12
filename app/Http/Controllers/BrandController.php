@@ -15,7 +15,8 @@ class BrandController extends Controller
     public function index()
     {
         //
-        return view('back.brands.index');
+        $brands = Brand::with('user')->get();
+        return view('back.brands.index', compact('brands'));
     }
 
     /**
@@ -37,6 +38,15 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'slug' => 'required|string|max:255',
+            'description' => 'string|nullable',
+        ]);
+
+        $request->user()->brands()->create($validated);
+
+        return redirect(route('brands.index'));
     }
 
     /**

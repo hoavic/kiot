@@ -56,13 +56,17 @@ body {overflow: hidden;}
     width: -webkit-fill-available;
 }
 
-
-
 .popup-box {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.create-grid {
+    display: grid;
+    grid-template-columns: auto 350px;
+    gap: 1em;
 }
 
 

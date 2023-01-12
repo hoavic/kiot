@@ -15,7 +15,9 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view('back.products.index');
+        $products = Product::with('user')->get();
+
+        return view('back.products.index', compact('products'));
     }
 
     /**
@@ -26,6 +28,9 @@ class ProductController extends Controller
     public function create()
     {
         //
+        $products = Product::with('user')->get();
+        
+        return view('back.products.create', compact('products'));
     }
 
     /**

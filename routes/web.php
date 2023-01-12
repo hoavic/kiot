@@ -38,7 +38,7 @@ Route::group([
 ], function() {
 
     Route::resource('products', ProductController::class)
-        ->only(['index', 'store', 'show']);
+        ->only(['index', 'store', 'show', 'create']);
 
     Route::resource('categories', CategoryController::class)
         ->only(['index', 'store', 'show']);
@@ -46,6 +46,10 @@ Route::group([
     Route::resource('brands', BrandController::class)
         ->only(['index', 'store', 'show']);
 
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
 require __DIR__.'/auth.php';

@@ -10,6 +10,8 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
+        "laravelcollective/html": "^6.3",
+        "spatie/laravel-permission": "^5.7",
         "unisharp/laravel-filemanager": "^2.5"
     },
     "require-dev": {

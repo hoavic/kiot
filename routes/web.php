@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RolesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -37,6 +41,10 @@ Route::group([
     'middleware' => ['auth', 'verified']
 ], function() {
 
+    Route::get('/', function() {
+        return redirect(route('dashboard'));
+    });
+
     Route::resource('products', ProductController::class)
         ->only(['index', 'store', 'show', 'create']);
 
@@ -45,6 +53,8 @@ Route::group([
 
     Route::resource('brands', BrandController::class)
         ->only(['index', 'store', 'show']);
+
+    Route::resource('roles', RolesController::class)->middleware(['role:Super-Admin']);
 
 });
 
